@@ -1,0 +1,366 @@
+Enabled minor modes: Auto-Composition Auto-Compression Auto-Encryption
+Blink-Cursor Cua Delete-Selection Electric-Indent File-Name-Shadow
+Font-Lock Global-Eldoc Global-Font-Lock Line-Number Menu-Bar
+Mouse-Wheel Save-Place Show-Paren Tooltip Transient-Mark
+
+(Information about these minor modes follows the major mode info.)
+
+Debugger mode defined in ‘debug.el’:
+Mode for debugging Emacs Lisp using a backtrace.
+
+A frame marked with ‘*’ in the backtrace means that exiting that
+frame will enter the debugger.  You can flag frames to enter the
+debugger when frame is exited with b, and remove
+the flag with u.
+
+When in debugger invoked due to exiting a frame which was flagged
+with a ‘*’, you can use the r command to
+override the value being returned from that frame when the debugger
+exits.
+
+Use M-x debug-on-entry and M-x cancel-debug-on-entry to control
+which functions will enter the debugger when called.
+
+Complete list of commands:
+key             binding
+---             -------
+
+TAB             forward-button
+RET             backtrace-help-follow-symbol
+ESC             Prefix Command
+SPC             scroll-up-command
+#               backtrace-toggle-print-circle
++               backtrace-multi-line
+-               backtrace-single-line
+.               backtrace-expand-ellipses
+0 .. 9          digit-argument
+:               backtrace-toggle-print-gensym
+<               beginning-of-buffer
+>               end-of-buffer
+?               describe-mode
+R               debugger-record-expression
+b               debugger-frame
+c               debugger-continue
+d               debugger-step-through
+e               debugger-eval-expression
+g               revert-buffer
+h               describe-mode
+j               debugger-jump
+l               debugger-list-functions
+n               backtrace-forward-frame
+p               backtrace-backward-frame
+q               debugger-quit
+r               debugger-return-value
+s               backtrace-goto-source
+u               debugger-frame-clear
+v               backtrace-toggle-locals
+DEL             scroll-down-command
+S-SPC           scroll-down-command
+<backtab>       backward-button
+<follow-link>   mouse-face
+<mouse-2>       push-button
+<remap>         Prefix Command
+
+C-M-i           backward-button
+
+
+
+In addition to any hooks its parent mode ‘backtrace-mode’ might have run,
+this mode runs the hook ‘debugger-mode-hook’, as the final or penultimate step
+during initialization.
+
+Auto-Composition minor mode (no indicator):
+Toggle Auto Composition mode.
+
+If called interactively, enable Auto-Composition mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called from
+Lisp, also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is ‘toggle’; disable the mode otherwise.
+
+When Auto Composition mode is enabled, text characters are
+automatically composed by functions registered in
+‘composition-function-table’.
+
+You can use ‘global-auto-composition-mode’ to turn on
+Auto Composition mode in all buffers (this is the default).
+
+Auto-Compression minor mode (no indicator):
+Toggle Auto Compression mode.
+
+If called interactively, enable Auto-Compression mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called from
+Lisp, also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is ‘toggle’; disable the mode otherwise.
+
+Auto Compression mode is a global minor mode.  When enabled,
+compressed files are automatically uncompressed for reading, and
+compressed when writing.
+
+Auto-Encryption minor mode (no indicator):
+Toggle automatic file encryption/decryption (Auto Encryption mode).
+
+If called interactively, enable Auto-Encryption mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called from
+Lisp, also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is ‘toggle’; disable the mode otherwise.
+
+Blink-Cursor minor mode (no indicator):
+Toggle cursor blinking (Blink Cursor mode).
+
+If called interactively, enable Blink-Cursor mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp, also
+enable the mode if ARG is omitted or nil, and toggle it if ARG is
+‘toggle’; disable the mode otherwise.
+
+If the value of ‘blink-cursor-blinks’ is positive (10 by default),
+the cursor stops blinking after that number of blinks, if Emacs
+gets no input during that time.
+
+See also ‘blink-cursor-interval’ and ‘blink-cursor-delay’.
+
+This command is effective only on graphical frames.  On text-only
+terminals, cursor blinking is controlled by the terminal.
+
+Cua minor mode (no indicator):
+Toggle Common User Access style editing (CUA mode).
+
+If called interactively, enable Cua mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp, also
+enable the mode if ARG is omitted or nil, and toggle it if ARG is
+‘toggle’; disable the mode otherwise.
+
+CUA mode is a global minor mode.  When enabled, typed text
+replaces the active selection, and you can use C-z, C-x, C-c, and
+C-v to undo, cut, copy, and paste in addition to the normal Emacs
+bindings.  The C-x and C-c keys only do cut and copy when the
+region is active, so in most cases, they do not conflict with the
+normal function of these prefix keys.
+
+If you really need to perform a command which starts with one of
+the prefix keys even when the region is active, you have three
+options:
+- press the prefix key twice very quickly (within 0.2 seconds),
+- press the prefix key and the following key within 0.2 seconds, or
+- use the SHIFT key with the prefix key, i.e. C-S-x or C-S-c.
+
+You can customize ‘cua-enable-cua-keys’ to completely disable the
+CUA bindings, or ‘cua-prefix-override-inhibit-delay’ to change
+the prefix fallback behavior.
+
+Delete-Selection minor mode (no indicator):
+Toggle Delete Selection mode.
+
+If called interactively, enable Delete-Selection mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called from
+Lisp, also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is ‘toggle’; disable the mode otherwise.
+
+When Delete Selection mode is enabled, typed text replaces the selection
+if the selection is active.  Otherwise, typed text is just inserted at
+point regardless of any selection.
+
+See ‘delete-selection-helper’ and ‘delete-selection-pre-hook’ for
+information on adapting behavior of commands in Delete Selection mode.
+
+Electric-Indent minor mode (no indicator):
+Toggle on-the-fly reindentation (Electric Indent mode).
+
+If called interactively, enable Electric-Indent mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called from
+Lisp, also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is ‘toggle’; disable the mode otherwise.
+
+When enabled, this reindents whenever the hook ‘electric-indent-functions’
+returns non-nil, or if you insert a character from ‘electric-indent-chars’.
+
+This is a global minor mode.  To toggle the mode in a single buffer,
+use ‘electric-indent-local-mode’.
+
+File-Name-Shadow minor mode (no indicator):
+Toggle file-name shadowing in minibuffers (File-Name Shadow mode).
+
+If called interactively, enable File-Name-Shadow mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called from
+Lisp, also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is ‘toggle’; disable the mode otherwise.
+
+File-Name Shadow mode is a global minor mode.  When enabled, any
+part of a filename being read in the minibuffer that would be
+ignored (because the result is passed through
+‘substitute-in-file-name’) is given the properties in
+‘file-name-shadow-properties’, which can be used to make that
+portion dim, invisible, or otherwise less visually noticeable.
+
+Font-Lock minor mode (no indicator):
+Toggle syntax highlighting in this buffer (Font Lock mode).
+
+If called interactively, enable Font-Lock mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp, also
+enable the mode if ARG is omitted or nil, and toggle it if ARG is
+‘toggle’; disable the mode otherwise.
+
+When Font Lock mode is enabled, text is fontified as you type it:
+
+ - Comments are displayed in ‘font-lock-comment-face’;
+ - Strings are displayed in ‘font-lock-string-face’;
+ - Certain other expressions are displayed in other faces
+   according to the value of the variable ‘font-lock-keywords’.
+
+To customize the faces (colors, fonts, etc.) used by Font Lock for
+fontifying different parts of buffer text, use M-x customize-face.
+
+You can enable Font Lock mode in any major mode automatically by
+turning on in the major mode’s hook.  For example, put in your
+~/.emacs:
+
+ (add-hook 'c-mode-hook 'turn-on-font-lock)
+
+Alternatively, you can use Global Font Lock mode to automagically
+turn on Font Lock mode in buffers whose major mode supports it
+and whose major mode is one of ‘font-lock-global-modes’.  For
+example, put in your ~/.emacs:
+
+ (global-font-lock-mode t)
+
+Where major modes support different levels of fontification, you
+can use the variable ‘font-lock-maximum-decoration’ to specify
+which level you generally prefer.  When you turn Font Lock mode
+on/off the buffer is fontified/defontified, though fontification
+occurs only if the buffer is less than ‘font-lock-maximum-size’.
+
+To add your own highlighting for some major mode, and modify the
+highlighting selected automatically via the variable
+‘font-lock-maximum-decoration’, you can use
+‘font-lock-add-keywords’.
+
+To fontify a buffer, without turning on Font Lock mode and
+regardless of buffer size, you can use M-x font-lock-fontify-buffer.
+
+To fontify a block (the function or paragraph containing point,
+or a number of lines around point), perhaps because modification
+on the current line caused syntactic change on other lines, you
+can use M-o M-o.
+
+You can set your own default settings for some mode, by setting a
+buffer local value for ‘font-lock-defaults’, via its mode hook.
+
+The above is the default behavior of ‘font-lock-mode’; you may
+specify your own function which is called when ‘font-lock-mode’
+is toggled via ‘font-lock-function’.
+
+Global-Eldoc minor mode (no indicator):
+Toggle Eldoc mode in all buffers.
+With prefix ARG, enable Global Eldoc mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Eldoc mode is enabled in all buffers where
+‘turn-on-eldoc-mode’ would do it.
+See ‘eldoc-mode’ for more information on Eldoc mode.
+
+Global-Font-Lock minor mode (no indicator):
+Toggle Font-Lock mode in all buffers.
+With prefix ARG, enable Global Font-Lock mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Font-Lock mode is enabled in all buffers where
+‘turn-on-font-lock-if-desired’ would do it.
+See ‘font-lock-mode’ for more information on Font-Lock mode.
+
+Line-Number minor mode (no indicator):
+Toggle line number display in the mode line (Line Number mode).
+
+If called interactively, enable Line-Number mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp, also
+enable the mode if ARG is omitted or nil, and toggle it if ARG is
+‘toggle’; disable the mode otherwise.
+
+Line numbers do not appear for very large buffers and buffers
+with very long lines; see variables ‘line-number-display-limit’
+and ‘line-number-display-limit-width’.
+
+Menu-Bar minor mode (no indicator):
+Toggle display of a menu bar on each frame (Menu Bar mode).
+
+If called interactively, enable Menu-Bar mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp, also
+enable the mode if ARG is omitted or nil, and toggle it if ARG is
+‘toggle’; disable the mode otherwise.
+
+This command applies to all frames that exist and frames to be
+created in the future.
+
+Mouse-Wheel minor mode (no indicator):
+Toggle mouse wheel support (Mouse Wheel mode).
+
+If called interactively, enable Mouse-Wheel mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp, also
+enable the mode if ARG is omitted or nil, and toggle it if ARG is
+‘toggle’; disable the mode otherwise.
+
+Save-Place minor mode (no indicator):
+Non-nil means automatically save place in each file.
+This means when you visit a file, point goes to the last place
+where it was when you previously visited the same file.
+
+If called interactively, enable Save-Place mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp, also
+enable the mode if ARG is omitted or nil, and toggle it if ARG is
+‘toggle’; disable the mode otherwise.
+
+Show-Paren minor mode (no indicator):
+Toggle visualization of matching parens (Show Paren mode).
+
+If called interactively, enable Show-Paren mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp, also
+enable the mode if ARG is omitted or nil, and toggle it if ARG is
+‘toggle’; disable the mode otherwise.
+
+Show Paren mode is a global minor mode.  When enabled, any
+matching parenthesis is highlighted in ‘show-paren-style’ after
+‘show-paren-delay’ seconds of Emacs idle time.
+
+Tooltip minor mode (no indicator):
+Toggle Tooltip mode.
+
+If called interactively, enable Tooltip mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp, also
+enable the mode if ARG is omitted or nil, and toggle it if ARG is
+‘toggle’; disable the mode otherwise.
+
+When this global minor mode is enabled, Emacs displays help
+text (e.g. for buttons and menu items that you put the mouse on)
+in a pop-up window.
+
+When Tooltip mode is disabled, Emacs displays help text in the
+echo area, instead of making a pop-up window.
+
+Transient-Mark minor mode (no indicator):
+Toggle Transient Mark mode.
+
+If called interactively, enable Transient-Mark mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called from
+Lisp, also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is ‘toggle’; disable the mode otherwise.
+
+Transient Mark mode is a global minor mode.  When enabled, the
+region is highlighted with the ‘region’ face whenever the mark
+is active.  The mark is "deactivated" after certain non-motion
+commands, including those that change the text in the buffer, and
+during shift or mouse selection by any unshifted cursor motion
+command (see Info node ‘Shift Selection’ for more details).
+
+You can also deactivate the mark by typing C-g or
+M-ESC ESC.
+
+Many commands change their behavior when Transient Mark mode is
+in effect and the mark is active, by acting on the region instead
+of their usual default part of the buffer’s text.  Examples of
+such commands include M-;, M-x flush-lines, M-x keep-lines,
+M-%, C-M-%, M-x ispell, and C-x u.
+To see the documentation of commands that are sensitive to the
+Transient Mark mode, invoke C-h d and type "transient"
+or "mark.*active" at the prompt.
+
+[back]

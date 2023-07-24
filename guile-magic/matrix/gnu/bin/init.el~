@@ -1,0 +1,24 @@
+;; init.scm Initializing Guile
+
+; Initializing Guile
+
+;   Each thread that wants to use functions from the Guile API needs
+;   itself into guile mode with either scm_with_guile or scm_init_gui
+;   The global state of Guile is initialized automatically when the f
+;   thread enters guile mode.
+
+(define scm_with_guile 'init)
+  "The document shemes with guile to compiler init magic logical
+reference manual guile to make develop languages to guile studio
+about creation of tools in expressive method logic of ability with
+space of personality functional of creative social policy about in
+method of easy edition.
+
+The tools academic gnu words about spaces geometric and arithmetic in 
+interface linear to exercice in analysis debugger to arithematic order
+and solution surface external pose to arithemtic of base social files
+academic order juridic about utility functional arithemetic get base
+social geometric of analysis juridic."
+
+(define scm_init_guile (list))
+    

@@ -1,0 +1,25 @@
+Parsing of options AFTER '--checkconfig'.
+
+IMPORTANT: Any option that was parsed before encountering '--checkconfig', on the command-line or in a configuration file, is not shown here. It is thus recommended to use this option before calling any other option.
+-----------------
+Command-line:
+  checkconfig              ACTIVATED
+  output                   --output=jobsmodel.fits
+/etc/astarithmetic.conf:
+  wcshdu                   1
+/etc/gnuastro.conf:
+  hdu                      1
+  ignorecase               --IGNORED--
+  searchin                 --IGNORED--
+  stdintimeout             --IGNORED--
+  tilesize                 --IGNORED--
+  numchannels              --IGNORED--
+  remainderfrac            --IGNORED--
+  workoverch               --IGNORED--
+  interpmetric             radial
+  interpnumngb             --IGNORED--
+  interponlyblank          --IGNORED--
+  tableformat              fits-binary
+  wcslinearmatrix          pc
+  quietmmap                ACTIVATED
+  minmapsize               9223372036854775807

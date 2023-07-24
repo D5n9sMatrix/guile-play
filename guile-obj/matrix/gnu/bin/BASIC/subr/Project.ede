@@ -1,0 +1,8 @@
+;; Object automake
+;; EDE Project Files are auto generated: Do Not Edit
+(ede-proj-project "automake"
+  :file "Project.ede"
+  :name "automake"
+  :targets nil
+  :object-name "automake"
+  :makefile-type Makefile\.am)

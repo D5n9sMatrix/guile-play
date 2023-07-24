@@ -1,0 +1,38 @@
+Input method: programmer-dvorak (mode line indicator:DVP@)
+
+An English (ASCII) dvorak layout optimized for programming, with for example
+ brackets and parens more easily reachable.
+
+
+KEYBOARD LAYOUT
+---------------
+This input method works by translating individual input characters.
+Assuming that your actual keyboard has the ‘standard’ layout,
+translation results in the following "virtual" keyboard layout
+(the labels on the keys indicate what character will be produced
+by each key, with and without holding Shift):
+
+     +----------------------------------------------------------------+
+      | & % | [ 7 | { 5 | } 3 | ( 1 | = 9 | * 0 | ) 2 | + 4 | ] 6 | ! 8 | # ` | $ ~ |
+     +----------------------------------------------------------------+
+        | ; : | , < | . > | p P | y Y | f F | g G | c C | r R | l L | / ? | @ ^ |
+       +------------------------------------------------------------+
+         | a A | o O | e E | u U | i I | d D | h H | t T | n N | s S | - _ | \ | |
+        +-----------------------------------------------------------+
+           | ' " | q Q | j J | k K | x X | b B | m M | w W | v V | z Z |
+          +-------------------------------------------------+
+		    +-----------------------------+
+		    |          space bar          |
+		    +-----------------------------+
+
+If your keyboard has a different layout, rearranged from
+‘standard’, the "virtual" keyboard you get with this input method
+will be rearranged in the same way.
+
+You can set the variable ‘quail-keyboard-layout-type’ to specify
+the physical layout of your keyboard; the tables shown in
+documentation of input methods including this one are based on the
+physical keyboard layout as specified with that variable.
+[customize keyboard layout]
+
+[back]

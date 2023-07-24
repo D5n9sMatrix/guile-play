@@ -1,0 +1,114 @@
+byte code:
+  doc:  When writing a table, we have to make sure we deoverlay it first. ...
+  args: (cl--cnm obj)
+0       constant  semanticdb-live-p
+1       varref    obj
+2       call      1
+3       goto-if-nil-else-pop 6
+6       constant  semanticdb-in-buffer-p
+7       varref    obj
+8       call      1
+9       goto-if-nil 2
+12      save-current-buffer 
+13      constant  semanticdb-in-buffer-p
+14      varref    obj
+15      call      1
+16      set-buffer 
+17      discard   
+18      save-excursion 
+19      constant  semantic-fetch-tags
+20      call      0
+21      discard   
+22      constant  boundp
+23      varref    semantic-show-unmatched-syntax-mode
+24      call      1
+25      goto-if-nil 1
+28      varref    semantic-show-unmatched-syntax-mode
+29      goto-if-nil 1
+32      constant  eieio-oset
+33      varref    obj
+34      constant  unmatched-syntax
+35      constant  semantic-show-unmatched-lex-tokens-fetch
+36      call      0
+37      call      3
+38      discard   
+39:1    constant  eieio-oset
+40      varref    obj
+41      constant  pointmax
+42      point-max 
+43      call      3
+44      discard   
+45      unbind    2
+46:2    constant  file-attributes
+47      constant  semanticdb-full-filename
+48      varref    obj
+49      call      1
+50      call      1
+51      varbind   fattr
+52      constant  eieio-oset
+53      varref    obj
+54      constant  fsize
+55      varref    fattr
+56      constant  7
+57      stack-ref 1
+58      nth       
+59      stack-set 1
+61      call      3
+62      discard   
+63      constant  eieio-oset
+64      varref    obj
+65      constant  lastmodtime
+66      varref    fattr
+67      constant  5
+68      stack-ref 1
+69      nth       
+70      stack-set 1
+72      call      3
+73      discard   
+74      unbind    1
+75      constant  (error)
+76      pushconditioncase 3
+79      varref    cl--cnm
+80      call      0
+81      pophandler 
+82      goto      5
+85:3    varbind   tableerror
+86      varref    semanticdb-data-debug-on-write-error
+87      goto-if-nil 4
+90      constant  require
+91      constant  data-debug
+92      call      1
+93      discard   
+94      constant  data-debug-new-buffer
+95      constant  "*SEMANTICDB ERROR*"
+96      call      1
+97      discard   
+98      constant  data-debug-insert-thing
+99      varref    obj
+100     constant  "*"
+101     constant  ""
+102     call      3
+103     discard   
+104     constant  nil
+105     varset    semanticdb-data-debug-on-write-error
+106:4   constant  message
+107     constant  "Error Writing Table: %s"
+108     constant  eieio-object-name
+109     varref    obj
+110     call      1
+111     call      2
+112     discard   
+113     constant  error
+114     constant  "%S"
+115     varref    tableerror
+116     cdr       
+117     car       
+118     call      2
+119     unbind    1
+120:5   discard   
+121     constant  eieio-oset
+122     varref    obj
+123     constant  dirty
+124     constant  nil
+125     call      3
+126:6   return    
